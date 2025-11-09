@@ -458,6 +458,7 @@ input[type="email"]:focus{
 .footer-link:hover{
     color: var(--lead);
 }
+
 /* media queries */
 
 @media screen and (max-width: 780px) {

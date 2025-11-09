@@ -17,12 +17,21 @@ const cartValue = document.querySelector('.cart-value');
 const soonBtn = document.querySelector('.soon');
 const checkOutBtn = document.querySelector('.check-out');
 
-soonBtn.addEventListener('click' , ()=>{
+soonBtn.addEventListener('click' , (e)=>{
+  e.preventDefault();
   alert('Coming Soon!!!');
 });
 
-checkOutBtn.addEventListener('click' , ()=>{
-  alert('Order Placed!!!');
+checkOutBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const totalQuantity = parseInt(cartValue.textContent);
+  
+  if (totalQuantity === 0) {
+    alert("There are no items in your cart");
+  } else {
+    alert("Order Placed!!!");
+  }
 });
 
 cartIcon.addEventListener('click' , ()=>{
@@ -50,6 +59,12 @@ const updateTotals = () => {
 
     cartTotal.textContent = `Rs${totalPrice}`;
     cartValue.textContent = totalQuantity;
+
+    if(totalQuantity == 0){
+        checkOutBtn.addEventListener('click' , ()=>{
+          alert("There are no items in your cart");
+        })
+    }
 };
 
 
