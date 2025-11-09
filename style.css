@@ -244,15 +244,19 @@ h4{
 .cart-tab{
     background: var(--hint-yellow);
     position: fixed;
-    inset: 0 0 0 auto;
+    inset: 0 -500px 0 auto;
     width: 25rem;
     padding-block: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 0.3s ease-in-out;
 }
 
+.cart-tab-active{
+    inset: 0 0 0 auto;
+}
 .cart-list{
     flex: 1;
     width: 100%;
@@ -286,8 +290,13 @@ h4{
 .item{
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
     padding: .7rem 1rem;
+    transition: all .5s ease-in-out;
+}
+
+.item.slide-out{
+    transform: translateX(50%);
 }
 
 .item h4{
@@ -452,7 +461,7 @@ input[type="email"]:focus{
 /* media queries */
 
 @media screen and (max-width: 780px) {
-    .navlist, .dispay-action, .btn{
+    .navlist, .dispay-action, .navbar .btn{
         display: none;
     }
     
